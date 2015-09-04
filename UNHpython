@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+mx,mn,counter = 100,1,0
+verify = False
+print ("You welcome to Console App")
+name = input("Plz , Enter your name : ")
+print (" Hey ", name, "This is a game which is guessing game")
+print (" have a number on mind between 1 to 100 ?")
+while(verify == False):
+    t= (mx+mn)//2
+    counter+=1
+    print ("Is it " , t)
+    trying = input(" [Y/N]")
+    if (trying == "N"):
+            print("Is it Upper than " , t , " ? ")
+            modify = input("  [Y/N] ")
+            if (modify == "Y"):
+                mn=t
+            else:
+                mx=t
+    else:
+         print ("I got it in " , counter , " tries, " )
+         again= input(" Do you like to play again ? [Y/N]")
+         if(again == "N"):
+             verify = True
+         else:
+            mx,mn,counter=100,1,0
+print (" Nice to have you play on my app ^_^ CU again ... ")
