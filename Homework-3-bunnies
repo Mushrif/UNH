@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+def Mush():
+        
+        global Starter
+        global Ears
+        global x
+        if Starter > Max:
+                return 0
+        elif Starter > 0:
+                if Starter % 2 ==0:
+                        Ears=Ears + 3
+                elif Starter %2==1:
+                        Ears=Ears + 2
+                        
+        print("bunnyEars",Max,"(", Starter,"): ", Ears)
+        Starter= Starter + 1
+        Mush()
+    
+Max = int(input("Enter the number that you would like to stop in :"))
+Starter = 0
+Ears = 0
+Mush()
