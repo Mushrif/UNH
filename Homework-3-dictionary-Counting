@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+def Count(mylist,count):
+     list={}
+     for x in mylist:
+          count=0
+          for y in mylist:
+               if y==x:
+                    count=count + 1
+                    list.update({y:count})
+     print(list)   
+mylist=["one", "two","eleven", "one", "three", "two", "eleven", "three", "seven", "eleven"]
+count=0
+Count(mylist,count)
