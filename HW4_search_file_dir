@@ -1,0 +1,28 @@
+#!/usr/bin/python
+import os
+con = True
+while(con ==True):
+     User_file_input =input("Enter the file with its extention : ")
+     User_Dir_input = input("Enter the dir : ")
+     file_name= str(User_file_input)
+     for root, dir_, files in os.walk(User_Dir_input):
+          if file_name in files:
+               print("the file is located here: " , root,file_name)
+     go_again= input("Do you like to search again [y/n]")
+ 
+     if(go_again is "y"):
+        con=True
+     else:
+          con=False
+print("The search is done, Thank you")
+
+########################################
+# The output is :
+'''
+Enter the file with its extention : DB.pdf
+Enter the dir : C:\\Users\Student\Desktop\Musharraf
+the file is located here:  C:\\Users\Student\Desktop\Musharraf\Books_mush\DB DB.
+pdf
+Do you like to search again [y/n]n
+The search is done, Thank you
+'''
