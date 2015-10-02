@@ -1,9 +1,9 @@
-#!/usr/bin/python
-import os
+#!/usr/bin/env python3
+import os,re
 con = True
 while(con ==True):
-     User_file_input =input("Enter the file with its extention : ")
-     User_Dir_input = input("Enter the dir : ")
+     User_file_input =input(r"Enter the file with its extention : ")
+     User_Dir_input = input(r"Enter the dir : ")
      file_name= str(User_file_input)
      for root, dir_, files in os.walk(User_Dir_input):
           if file_name in files:
