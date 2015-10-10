@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+from datetime import datetime
+import shelve
+import time
+
+mush_dic = {}
+dt1 = datetime.now()
+mush_dic["name"] = ["Musharraf", "Nasser", "Suliby","Fedgash","Almorady","Alruwaill"]
+print (mush_dic["name"])
+dt2 = datetime.now()
+print (dt2.microsecond - dt1.microsecond)
+
+print ("--------SHELVE-----------")
+
+dt3 = datetime.now()
+shv = shelve.open("Musharraf.dat")
+shv["name"] = {"Musharraf", "Nasser", "Suliby","Fedgash","Almorady","Alruwaill"}
+shv.sync()
+print (shv["Name"])
+dt4 = datetime.now()
+print (dt4.microsecond - dt3.microsecond)
