@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+import pickle
+import shelve
+##### GETTING INPUT AND STORE IT IN VARIABLES #######
+u_name =  input("Hi user, Could you write down your name : ")
+u_age = input("your age: ")
+u_country = input("Country of Origin: ")
+name = [u_name]
+age = [u_age]
+country = [u_country]
+dic_pic= {"name":u_name,"age:":u_age,"Country":u_country}
+##### STORING IN PICKELS ######
+def pic(name,age,country):
+    p_file= open('pFile.txt' , 'wb')
+    pickle.dump(dic_pic,p_file)
+    p_file.close()
+##### STORING IN SHELVE #######
+def shv(name,age,country):
+    s_file = shelve.open('sfile.dat')
+    s_file["name"] = [u_name]
+    s_file["age"] = [u_age]
+    s_file["country"] = [u_country]
+    s_file.sync()
+    s_file.close()
+##### PASSING Para ######
+pic(name,age,country)
+shv(name,age,country)
+print ("--------------------")
+# reading back
+s = shelve.open ('sfile.dat')
+p = open('pFile.txt' , 'rb')
+pread = pickle.load(p)
+p.close()
+print (pread)
+print ("--------------------")
+for s_word in s.keys():
+    print(s_word, s[s_word])
