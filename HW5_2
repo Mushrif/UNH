@@ -1,0 +1,27 @@
+import urllib.request
+import json
+#having the content to python
+Jweb=urllib.request.urlopen("https://restcountries.eu/rest/v1/alpha/co")
+The_data=Jweb.read()
+Dic_data=The_data.decode('utf-8')
+contries = json.loads(Dic_data)
+verify = False
+#loop to have the user can enter the code as many as he\she wants
+while(True):
+    u_country = input("Hi user, What's your code of your nationality  ?  ")
+    for key,nationality in contries.items():
+        if ( u_country == nationality ):
+            print("\nTHE COUNTRY IS : ", str(contries['nativeName']) , "\n")
+            print("\nTHE CAPITAL OF THE COUTNRY IS : ", str(contries['capital']),"\n")
+            verify = True 
+    u_choice = input("Do you wanna STOP running , write [y] ?  ")
+    if (u_choice == "y"):
+            break
+# if it's not found , will print it out here.
+if (verify == False):
+    print("----------------------------------------------")
+    print ("The Code that you are looking for is not founded")
+    print ("Retruning the orginal value .... ")
+    print("----------------------------------------------")
+    print("nativeName: ", contries['nativeName'])
+    print("capital: ", contries['capital'])
