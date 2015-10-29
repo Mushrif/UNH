@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+class Animal:
+        def __init__(self, x):
+                self.choice = x
+        def guess_who_am_i(self):
+                Mush={}
+                Mush["elephant"] = ["I have exceptional memory","I am the largest land-living mammal in the world","I'm so strong"]
+                Mush["tiger"]=["I am the biggest cat","I come in black and white or orange and black","I see well in dark"]
+                Mush["bat"]=["I use echo-location","I can fly","I see well in dark"]
+                counter = 0
+                got_it = False
+                while(1):
+                        if counter < 3:
+                                print ("\nI will give you 3 hints, guess what animal I am\n")
+                                for x in range(0,3):
+                                        counter = counter + 1
+                                        print (Mush[self.choice][x], "\n")
+                                        u_input = input("Your guess is : ")
+                                        if str(u_input) == str(self.choice):
+                                                print("You got it! I am  ",str(self.choice))
+                                                got_it = True
+                                                counter= 4
+                                                break
+                                        else:
+                                                print ("Nope, try again!\n")
+                        else:
+                                if got_it == False:
+                                    print ("\n\nI'm out of hints! The answer is: ",str(self.choice),"\n" )    
+                                break
+        
+e = Animal("elephant")
+t = Animal("tiger")
+b = Animal("bat")
+
+e.guess_who_am_i()
+t.guess_who_am_i()
+b.guess_who_am_i()
