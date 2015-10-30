@@ -1,0 +1,28 @@
+from random import randrange
+print ("INTEGER DIVISIONS\n")
+counter=0
+while(1):
+        number_of_question= input("How many question do you like to be asked ?")
+        if number_of_question.isdigit():
+                number_of_question = int(number_of_question)
+                break
+        else:
+                print ("WRITE A NUMBER ... ")
+
+# Be sure that the entered is number of the questions ...            
+while(counter < number_of_question):
+        counter = counter + 1
+        a = randrange(5)
+        b= randrange(5)
+        try:
+                z= a//b
+                u_input= input("%i / %i = "%(a, b))
+                x = int(u_input)
+                if x == z:
+                        print ("CORRECT!")
+                else:
+                        print("INCORRECT!")
+        except ZeroDivisionError:
+                pass
+        except:
+                print ("Please enter Integers Only!")
