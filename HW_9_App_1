@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+from wsgiref.simple_server import make_server
+import psutil
+lists = psutil.users()
+def hello_world_app(environ, start_response):
+	HTMLCODE=""
+	status = '200 OK'
+	headers = [('Content-type', 'html; charset=utf-8')]
+	start_response(status, headers)
+	HTMLCODE += """
+<style>
+	.cssT {
+		border:1px solid #C0C0C0;
+		border-collapse:collapse;
+		padding:5px;
+	}
+	.cssT th {
+		border:1px solid #C0C0C0;
+		padding:5px;
+		background:#F0F0F0;
+	}
+	.cssT td {
+		border:1px solid #C0C0C0;
+		padding:5px;
+		background:#e5ffff;
+	}
+	body
+	{
+		 background-color: lightblue;
+	}
+	div {
+    width:400px;
+    margin: auto;
+    border: 1px solid black;
+}
+</style>
+<br></br>
+<br></br>
+<br></br>
+<div class = "Mush">
+<h2>Welcome to Musharraf Alruwaill Application </h2>
+<table class="cssT">
+	<caption>System Info<br></caption>
+	<thead>
+	<tr>
+		<th>Type&nbsp;&nbsp; <br></th>
+		<th>Value</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>&nbsp;Name</td>
+		<td>&nbsp;%s</td>
+	</tr>
+	<tr>
+		<td>&nbsp;Terminal</td>
+		<td>&nbsp;%s</td>
+	</tr>
+	<tr>
+		<td>&nbsp;Host</td>
+		<td>&nbsp;%s</td>
+	</tr>
+	<tr>
+		<td>&nbsp;Started</td>
+		<td>&nbsp;%s</td>
+	</tr>
+	</tbody>
+</table>
+</div>
+
+	""" % (lists[0][0],lists[0][1],lists[0][2],lists[0][3])
+	return[bytes(HTMLCODE,'utf-8')]
+httpd = make_server('', 8000, hello_world_app)
+httpd.serve_forever()
+
