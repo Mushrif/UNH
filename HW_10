@@ -1,0 +1,46 @@
+from tkinter import *
+import os
+import random
+New_Window = Tk()
+
+# the most good thing is that the application
+# print out the statements that depends on what
+# the sounds are saying.
+
+def buttonPressed(event): # print out each time new text and playing sound
+   rnd = random.randrange(1,4)
+   os.system(str(rnd)+".wav")
+   print ("The X : [",event.x,"]     The Y :[",event.y, "]" , "   AND THE RANDOM SOUND NUMBER IS: ",rnd)
+   
+   cood1 = random.randrange(200,400)
+   cood2 = random.randrange(200,300)
+   
+   if(rnd == 1):
+        myCVS.create_text(cood1,cood2,fill= "blue", text = "The mission has been completed.")
+   elif(rnd == 2):
+        myCVS.create_text(cood1,cood2,fill= "black", text = "Congratulations on your discovery, which may well prove to be among the most significant in the history of science")
+   elif(rnd ==3):
+        myCVS.create_text(cood1,cood2,fill= "red", text = "Thank you for a very enjoyable game.")
+
+# draw out the picture that i like which is mostly lines which describes how my mind work
+
+myCVS = Canvas(New_Window, width=400, height=250, bg = "white")
+myCVS.pack()
+myCVS.create_line(0, 5, 400, 5, fill="#476042", width=3)
+myCVS.create_line(0, 20, 400, 20, fill="#476552", width=3)
+myCVS.create_line(0, 40, 400, 40, fill="#476662", width=3)
+myCVS.create_line(0, 60, 400, 60, fill="#476772", width=3)
+myCVS.create_line(0, 80, 400, 80, fill="#476882", width=3)
+myCVS.create_line(0, 100, 400, 100, fill="#476992", width=3)
+myCVS.create_line(0, 120, 400, 120, fill="#472042", width=3)
+myCVS.create_line(0, 140, 400, 140, fill="#473042", width=3)
+myCVS.create_line(0, 160, 400, 160, fill="#474042", width=3)
+myCVS.create_line(0, 180, 400, 180, fill="#474042", width=3)
+myCVS.create_line(0, 200, 400, 200, fill="#556042", width=3)
+myCVS.create_line(0, 220, 400, 220, fill="#666042", width=3)
+myCVS.create_line(0, 240, 400, 240, fill="#776042", width=3)
+myCVS.create_rectangle(50, 120, 200, 200, fill="#476042")
+myCVS.create_text(120,160,fill= "#ff00ff", text = "Python 3.4")
+myCVS.create_polygon(120, 173 ,outline="black",fill='yellow', width=3)
+myCVS.bind( "<Button-1>", buttonPressed )
+mainloop()
